@@ -6,6 +6,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+## Take a clone of this repo
+
+git clone https://github.com/adityamishraofficial/here-my-watch-list.git
+
+## Install Node Modules
+
+npm install
+
 ### `npm start`
 
 Runs the app in the development mode.\
