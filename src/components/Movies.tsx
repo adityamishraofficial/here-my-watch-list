@@ -132,6 +132,9 @@ export default class Movies extends Component {
 
         <Grid container spacing={2}>
             <Grid item xs={12} md={12}>
+            <Typography gutterBottom variant="h6" style={{fontSize: '18px', marginTop: '20px'}}
+         component="div">
+         Filter by Genre </Typography>
             <ButtonGroup  variant="outlined" aria-label="Basic button group">
                 {this.state.movieGenre.map((item: any) => 
                   <Button onClick={() => this.onClickGenre(item)} className={this.state.activeGenre === item.name ? 'active-btn' : ''}>{item.name}</Button>
