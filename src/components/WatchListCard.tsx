@@ -9,6 +9,7 @@ import { Alert, Divider, IconButton, Menu, MenuItem, Modal, Snackbar, TextField 
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { LOCAL_STORAGE } from '../constant/local-storeage';
 import { Link } from 'react-router-dom';
+import ShareIcon from '@mui/icons-material/Share';
 const bull = (
   <Box
     component="span"
@@ -92,7 +93,15 @@ export default function WatchListCard(props: any) {
         setOpenNotification(false);
       }, 4000)
     }
-  return (
+    const copyShareURL = () => {
+     const url =   window.location.origin + '/movie-list/' + props.item.id + '/' + props.item.title;
+     navigator.clipboard.writeText(url).then(res => {
+      showNotification('success','Link copied to clipboard');
+        }).catch(err => {
+          showNotification('error', 'Failed to copy: ' + err);
+        });
+      }
+   return (
     <Box sx={{ pt: 5, minWidth: 275 }}>
       <Card variant="outlined">
         <React.Fragment>
@@ -128,6 +137,11 @@ export default function WatchListCard(props: any) {
         <MenuItem onClick={openEditModal}>Edit</MenuItem>
         <MenuItem onClick={deleteWatchList}>Delete</MenuItem>
       </Menu>
+      <IconButton 
+       id="basic-button"
+       onClick={copyShareURL}>
+        <ShareIcon fontSize="small" />
+    </IconButton>
     </div>
 
     <Modal
